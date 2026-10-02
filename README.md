@@ -20,17 +20,19 @@ A personal task manager. Create, edit, complete, prioritise and delete tasks, th
 ## Getting started
 
 ```bash
-git clone https://github.com/<your-username>/taskflow.git
+git clone https://github.com/stackcraftio/taskflow.git
 cd taskflow
 
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-python app.py
+python3 -m flask --app app run --port 5001
 ```
 
-Open <http://127.0.0.1:5000>.
+Open <http://127.0.0.1:5001>.
+
+Port 5001 is used because macOS reserves port 5000 for AirPlay Receiver.
 
 For anything beyond local use, set your own secret key:
 
@@ -41,7 +43,7 @@ export SECRET_KEY="a-long-random-string"
 ## Running the tests
 
 ```bash
-python -m unittest discover -s tests -v
+python3 -m unittest discover -s tests -v
 ```
 
 ## Project structure
@@ -58,13 +60,13 @@ taskflow/
 
 ## Routes
 
-| Method | Path                      | Purpose                                  |
-| ------ | ------------------------- | ---------------------------------------- |
-| GET    | `/`                       | List tasks (`?status=&priority=&sort=`)  |
-| POST   | `/tasks`                  | Create a task                            |
-| GET/POST | `/tasks/<id>/edit`      | Edit a task                              |
-| POST   | `/tasks/<id>/toggle`      | Mark done / reopen                       |
-| POST   | `/tasks/<id>/delete`      | Delete a task                            |
+| Method   | Path                 | Purpose                                 |
+| -------- | -------------------- | --------------------------------------- |
+| GET      | `/`                  | List tasks (`?status=&priority=&sort=`) |
+| POST     | `/tasks`             | Create a task                           |
+| GET/POST | `/tasks/<id>/edit`   | Edit a task                             |
+| POST     | `/tasks/<id>/toggle` | Mark done / reopen                      |
+| POST     | `/tasks/<id>/delete` | Delete a task                           |
 
 ## Roadmap
 
@@ -75,4 +77,5 @@ taskflow/
 
 ## Licence
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). Copyright (c) 2026 YY.
+
