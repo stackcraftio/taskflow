@@ -6,6 +6,11 @@ A personal task manager. Create, edit, complete, prioritise and delete tasks, th
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+<p align="center">
+  <img src="screenshots/preview1.png" width="48%">
+</p>
+
+
 ## Features
 
 - Add tasks with a title, notes, priority (low, medium, high) and optional due date
