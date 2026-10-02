@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Edit task - TaskFlow{% endblock %}
+{% block content %}
+<form class="editor" method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <h1>Edit task</h1>
+  <label>Title
+    <input name="title" type="text" maxlength="120" value="{{ task.title }}" required autofocus>
+  </label>
+  <label>Notes
+    <textarea name="description" rows="5" maxlength="1000">{{ task.description }}</textarea>
+  </label>
+  <div class="editor-row">
+    <label>Priority
+      <select name="priority">
+        {% for p in priorities %}<option value="{{ p }}" {{ 'selected' if p == task.priority }}>{{ p|capitalize }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Due
+      <input type="date" name="due_date" value="{{ task.due_date or '' }}">
+    </label>
+  </div>
+  <div class="editor-actions">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    <a class="btn btn-quiet" href="{{ url_for('index') }}">Cancel</a>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# App data (local SQLite database lives here)
+instance/
+*.db
+
+# Environment / editor
+.env
+.vscode/
+.idea/
+.DS_Store
